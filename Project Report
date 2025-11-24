@@ -1,0 +1,60 @@
+Daily Expense Tracker - Project Report
+1. Introduction
+1.1 Project Aim
+The primary objective of this project was to develop a simple, robust, and user-friendly command-line
+application in Python capable of tracking daily personal or small-scale business expenses. The
+program needed to meet two core functional requirements: the ability to record detailed expenses and
+the ability to generate meaningful summary reports.
+1.2 Problem Statement
+Many commercial budget trackers are overly complex or rely on internet connectivity. The need
+identified was for a lightweight, local solution that prioritizes quick data entry and persistent storage
+without external dependencies. This project addresses the challenge of managing personal finance
+data efficiently using only standard Python capabilities.
+2. Methodology and Implementation
+2.1 Core Data Structure and Persistence
+The decision was made to use the Comma Separated Values (CSV) format for data persistence. This
+approach offers several benefits:
+1. Human-Readable: The data can be viewed and edited easily outside the program.
+2. Standard Module: Python's built-in csv module provides robust methods for reading and
+writing data, eliminating the need for external libraries or complex database management.
+The data schema for the expenses.csv file is fixed with the following headers: Date , Amount ,
+Category , and Description .
+2.2 Python Modules Used
+Module Function
+csv Used for reading data from and writing data to the expenses.csv file.
+os Used primarily in the initialize_csv function to check for the existence of the data file.
+datetime Used to automatically timestamp each expense record for accurate tracking.
+2.3 Key Functions
+add_expense()
+This function handles user input and data validation:
+1. It uses a while loop and a try-except block to ensure the Amount input is a valid positive
+floating-point number.
+24/11/2025, 09:21 Google Gemini
+https://gemini.google.com/app/a06c48f459707d90?hl=en-IN 1/2
+2. It lists predefined categories and validates the user's numeric selection.
+3. It automatically records the current timestamp using datetime.now().strftime() .
+4. The data is appended to the expenses.csv file in append mode ( 'a' ).
+view_summary()
+This is the analysis function:
+1. It initializes a dictionary ( expenses_by_category ) to hold the accumulated totals for each
+category.
+2. It iterates through every row of the CSV file, skipping the header.
+3. It performs runtime data conversion ( float() ) and handles potential ValueError or
+IndexError gracefully, ensuring a corrupted row does not crash the entire report.
+4. Finally, it calculates and prints the percentage contribution of each category to the total
+spending, offering a quick visual assessment of expenditure focus.
+3. Results and Conclusion
+3.1 Results
+The Daily Expense Tracker successfully fulfills the project requirements. It provides a reliable
+mechanism for data entry and generates an accurate, easily digestible financial summary. The use of a
+CSV file for storage ensures data integrity and accessibility.
+3.2 Future Scope
+Potential enhancements for this project include:
+1. Date Filtering: Implement an option to view summaries for specific periods (e.g., "last 7 days" or
+"current month").
+2. Graphical Interface (GUI): Migrate the current command-line interface to a simple GUI using
+libraries like Tkinter or PyQt for improved user experience.
+3. Data Visualization: Incorporate libraries like matplotlib to generate basic bar charts or pie
+charts of the spending breakdown.
+4. Security: Implement basic password protection or encryption for the expenses.csv file if the
+tracker is to be used in a shared environment.
