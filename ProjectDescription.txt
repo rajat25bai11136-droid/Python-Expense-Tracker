@@ -1,0 +1,3 @@
+Project Title: Daily Expense Tracker
+
+This command-line Python program is designed to simplify personal finance management by allowing users to quickly log their daily expenditures and generate categorized spending reports. It uses standard Python libraries, including the csv module, to ensure data is saved persistently in a local file (expenses.csv). The core benefit is providing a lightweight, offline tool for visualizing where money is being spent across categories like Food, Transport, and Entertainment.
